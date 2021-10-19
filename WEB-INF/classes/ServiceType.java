@@ -1,4 +1,4 @@
-package fileserv;
+package fileservups;
 public enum ServiceType {
   NON,NETWORK, FILETRANSFER
 }

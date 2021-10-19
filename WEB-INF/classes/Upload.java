@@ -1,5 +1,5 @@
-package fileserv;
-import fileserv.*;
+package fileservups;
+import fileservups.*;
 import java.io.File;
 import java.util.*;
 import java.io.IOException;
