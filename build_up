@@ -1,0 +1,5 @@
+#!bin/bash
+cd WEB-INF/classes
+javac -cp /usr/local/tomcat/lib/*:./* *.java
+mv *.class net/codejava/servlet
+cd ../../
