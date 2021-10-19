@@ -13,7 +13,7 @@
       <servlet-name>fileserv</servlet-name>
 
       <!-- Name of your servlet class -->
-      <servlet-class>fileserv</servlet-class>
+      <servlet-class>Upload</servlet-class>
     </servlet>
 
     <servlet-mapping>
