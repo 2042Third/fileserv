@@ -7,8 +7,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Unencrypted File Upload</title>
 <link rel='stylesheet' href='style.css'  type="text/css" >
-
-  <title>PDM crypto</title>
+<title>PDM crypto</title>
 </head>
 
 

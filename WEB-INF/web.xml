@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<!DOCTYPE web-app 
+    PUBLIC "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN" 
+    "http://java.sun.com/dtd/web-app_2_3.dtd">
+
+<web-app>
+    <servlet>
+      <!-- 
+        This is arbitrary name for your servlet,
+        used in servlet-mapping below
+       -->
+      <servlet-name>fileserv</servlet-name>
+
+      <!-- Name of your servlet class -->
+      <servlet-class>Upload</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+      <servlet-name>fileserv</servlet-name>
+
+      <!--
+         Here you say location (under context) where your servlet
+         can receive requests.
+       -->
+      <url-pattern>/index.jsp</url-pattern>
+    </servlet-mapping>
+</web-app>
