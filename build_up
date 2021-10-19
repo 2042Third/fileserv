@@ -2,4 +2,4 @@
 cd WEB-INF/classes
 javac -cp /usr/local/tomcat/lib/*:./* *.java
 mv *.class fileserv
-cd ../../
+cd ../
