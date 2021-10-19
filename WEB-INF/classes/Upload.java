@@ -57,6 +57,7 @@ public class Upload extends HttpServlet {
             switch(part.getName()){
                 case "file":
                     String fileNameTmp = extractFileName(part);
+                    System.out.println("[FileName] Read "+fileNameTmp);
                     fileName = fileNameTmp;
                     serv_type=ServiceType.FILETRANSFER;
                     continue;
