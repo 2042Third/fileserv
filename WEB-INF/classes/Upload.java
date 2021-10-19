@@ -16,9 +16,9 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.InputStreamReader;
 import javax.servlet.http.Part;
 @WebServlet("/Upload")
-// @MultipartConfig(fileSizeThreshold=1024*1024*2, // 2MB
-//                  maxFileSize=1024*1024*10,      // 10MB
-//                  maxRequestSize=1024*1024*50)   // 50MB
+@MultipartConfig(fileSizeThreshold=0, // 2MB
+                 maxFileSize=-1L,      // 10MB
+                 maxRequestSize=-1L)   // 50MB
 public class Upload extends HttpServlet {
     /**
      * Name of the directory where uploaded files will be saved, relative to
