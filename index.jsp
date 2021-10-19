@@ -6,8 +6,17 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Unencrypted File Upload</title>
+<link rel='stylesheet' href='style.css'  type="text/css" >
+
+  <title>PDM crypto</title>
 </head>
+
+
+
 <body>
+<main>
+
+
 <center>
     <h1>Unencrypted File Upload</h1>
     <form method="post" action="UploadServlet"
@@ -16,5 +25,18 @@
         <br /> <input type="submit" value="Upload" />
     </form>
 </center>
+
+
+</main>
+<footer>
+  <a href="https://github.com/2042third" target="_blank">Source</a>
+  <br><br>
+  <span id="version"></span><br>
+  Copyright (c) 2021 Yang Yi<br>
+  <a href="https://dryangyi.com" target="_blank">dumbAFRandy.com</a>
+</footer>
+
+
+
 </body>
 </html>
