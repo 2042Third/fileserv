@@ -13,26 +13,25 @@
 
 
 <body>
-    <h2>${requestScope.message}</h2>
-<main>
+<table style="width:100%">
+  <tr>
+    <th>File</th>
+    <th>Download</th>
+    
+  </tr>
+  <tr>
+    <td>Alfreds Futterkiste</td>
+    <td>Maria Anders</td>
+    <td>Germany</td>
+  </tr>
+  <c:forEach items="${list_files}" var="file">
+    <option value="${file}" 
+      >
+      ${file}
+    </option>
+  </c:forEach>
+</table>
 
-
-<center>
-    <h1>Unencrypted File Upload</h1>
-    <form method="post" action="Upload"
-        enctype="multipart/form-data">
-        Select file to upload: <input type="file" name="file"  /><br />
-        <br /> <input type="submit" value="Upload" />
-    </form>
-    </br>
-    <form method="get" action="Upload" enctype="multipart/form-data">
-         <br />
-        <br /> <input type="submit" value="All Files/Download" />
-    </form>
-</center>
-
-
-</main>
 <footer>
   <a href="https://github.com/2042third" target="_blank">Source</a>
   <br><br>

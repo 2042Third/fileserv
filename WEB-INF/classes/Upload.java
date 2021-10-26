@@ -76,6 +76,27 @@ public class Upload extends HttpServlet {
         }
     }
 
+    private void doGet(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        listAllFiles(request, response);
+    }
+
+    private void listAllFiles(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+
+        try {
+
+            List<Category> list_files = getResourcePaths("/file-saved");
+            request.setAttribute("list_files", list_files);
+
+            RequestDispatcher dispatcher = request.getRequestDispatcher("download");
+            dispatcher.forward(request, response);
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+            throw new ServletException(e);
+        }
+    }
     /**
      *  Writes the file
      * 
