@@ -70,7 +70,7 @@ public class Upload extends HttpServlet {
             case FILETRANSFER:
                 save_the_file(fileName,savePath, request.getPart("file"));
                 request.setAttribute("message", "File has been uploaded.");
-                getServletContext().getRequestDispatcher("/message.jsp").forward(
+                getServletContext().getRequestDispatcher("/index.jsp").forward(
                         request, response);
                 break;
         }
