@@ -83,6 +83,7 @@ public class Upload extends HttpServlet {
         listAllFiles(request, response);
     }
 
+    @RequestMapping(value = "/files", method = RequestMethod.GET)
     private void listAllFiles(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         final ServletContext servletContext = getServletContext();
