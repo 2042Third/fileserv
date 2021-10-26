@@ -13,6 +13,7 @@
 
 
 <body>
+    <h2>${requestScope.message}</h2>
 <main>
 
 
@@ -32,7 +33,7 @@
   <br><br>
   <span id="version"></span><br>
   Copyright (c) 2021 Yang Yi<br>
-  <a href="https://dryangyi.com" target="_blank">dumbAFRandy.com</a>
+  <a href="https://dryangyi.com" target="_blank">dryangyi.com</a>
 </footer>
 
 
