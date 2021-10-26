@@ -77,7 +77,7 @@ public class Upload extends HttpServlet {
         }
     }
 
-    private void doGet(HttpServletRequest request, HttpServletResponse response)
+    protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         listAllFiles(request, response);
     }
