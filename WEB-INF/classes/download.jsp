@@ -19,11 +19,7 @@
     <th>Download</th>
     
   </tr>
-  <tr>
-    <td>Alfreds Futterkiste</td>
-    <td>Maria Anders</td>
-    <td>Germany</td>
-  </tr>
+
   <c:forEach items="${list_files}" var="file">
     <option value="${file}" 
       >
@@ -31,7 +27,14 @@
     </option>
   </c:forEach>
 </table>
-
+<table>
+  <c:forEach items="${list_files}" var="file">
+    <tr>
+      <td>${file}</td>
+      <td></td>
+    </tr>
+  </c:forEach>
+</table>
 <footer>
   <a href="https://github.com/2042third" target="_blank">Source</a>
   <br><br>
