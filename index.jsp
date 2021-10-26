@@ -25,7 +25,7 @@
         <br /> <input type="submit" value="Upload" />
     </form>
     </br>
-    <form method="get" action="Upload" enctype="multipart/form-data">
+    <form  action="Upload" >
          <br />
         <br /> <input type="submit" value="All Files/Download" />
     </form>
