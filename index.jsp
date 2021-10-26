@@ -13,7 +13,7 @@
 
 
 <body>
-    
+    <h2>${requestScope.message}</h2>
 <main>
 
 
@@ -28,7 +28,6 @@
 
 
 </main>
-<h2>${requestScope.message}</h2>
 <footer>
   <a href="https://github.com/2042third" target="_blank">Source</a>
   <br><br>
