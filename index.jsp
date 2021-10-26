@@ -13,7 +13,6 @@
 
 
 <body>
-    <h2>${requestScope.message}</h2>
 <main>
 
 
