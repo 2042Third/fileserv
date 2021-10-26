@@ -92,8 +92,7 @@ public class Upload extends HttpServlet {
             Set<String> list_files = servletContext.getResourcePaths("/file-saved");
             request.setAttribute("list_files", list_files);
 
-            RequestDispatcher dispatcher = request.getRequestDispatcher("download");
-            dispatcher.forward(request, response);
+            request.getRequestDispatcher("/download").forward(request, response);
 
         } catch (Exception e) {
             e.printStackTrace();
