@@ -93,7 +93,7 @@ public class Upload extends HttpServlet {
             RequestDispatcher dispatcher = request.getRequestDispatcher("download");
             dispatcher.forward(request, response);
 
-        } catch (SQLException e) {
+        } catch (Exception e) {
             e.printStackTrace();
             throw new ServletException(e);
         }
