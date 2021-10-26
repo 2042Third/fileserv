@@ -25,7 +25,7 @@
         <br /> <input type="submit" value="Upload" />
     </form>
     </br>
-    <form  action="Upload" >
+    <form method="get" action="Upload" >
          <br />
         <br /> <input type="submit" value="All Files/Download" />
     </form>

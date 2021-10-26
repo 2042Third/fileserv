@@ -77,13 +77,13 @@ public class Upload extends HttpServlet {
                 break;
         }
     }
-
+    
+    @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         listAllFiles(request, response);
     }
 
-    @RequestMapping(value = "/files", method = RequestMethod.GET)
     private void listAllFiles(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         final ServletContext servletContext = getServletContext();
