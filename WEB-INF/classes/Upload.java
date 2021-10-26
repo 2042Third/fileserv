@@ -87,7 +87,7 @@ public class Upload extends HttpServlet {
 
         try {
 
-            List<Category> list_files = getResourcePaths("/file-saved");
+            List<String> list_files = getResourcePaths("/file-saved");
             request.setAttribute("list_files", list_files);
 
             RequestDispatcher dispatcher = request.getRequestDispatcher("download");
