@@ -25,7 +25,7 @@
         <br /> <input type="submit" value="Upload" />
     </form>
     </br>
-    <form method="get" action="Upload" >
+    <form action="<%= request.getContextPath() %>/Upload" method="get" >
          <br />
         <br /> <input type="submit" value="All Files/Download" />
     </form>
