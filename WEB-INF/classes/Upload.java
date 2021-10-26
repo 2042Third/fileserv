@@ -84,7 +84,7 @@ public class Upload extends HttpServlet {
 
     private void listAllFiles(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        final ServletContext servletContext = Parameters.getServletContext();
+        final ServletContext servletContext = getServletContext();
         try {
 
             List<String> list_files = servletContext.getResourcePaths("/file-saved");
