@@ -54,9 +54,9 @@ public class Upload extends HttpServlet {
         }
         String fileName = "";
         for (Part part : request.getParts()) {
-            System.out.println("Part: "+part.getName().trim());
+            System.out.println("Part: "+part.getName());
             //get the purpose of the connection, and resolve
-            switch(part.getName().trim()){
+            switch(part.getName()){
                 case "file":
                     String fileNameTmp = extractFileName(part);
                     System.out.println("[FileName] Read "+fileNameTmp);
@@ -67,7 +67,7 @@ public class Upload extends HttpServlet {
                     savePath = set_up_user_path(part,savePath);
                     continue;
                 case "file_listing":
-                System.out.println("[FileListing] received.");
+                    System.out.println("[FileListing] received.");
                     serv_type=ServiceType.FILELISTING;
                     continue;
             }

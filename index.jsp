@@ -24,11 +24,9 @@
         <br /> <input type="submit" value="Upload" />
     </form>
     </br>
-    <form action="<%= request.getContextPath() %>/Upload" method="get" >
-         <br />
-        <br /> <input type="submit" value="All Files/Download" />
-    </form>
-    <form method="post" action="Upload">
+
+    <form method="post" action="Upload"
+        enctype="multipart/form-data">
         click to test <input  name="file_listing"  /><br />
         <br /> <input type="submit" value="Upload" />
     </form>
