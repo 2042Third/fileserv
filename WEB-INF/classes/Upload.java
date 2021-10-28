@@ -97,12 +97,12 @@ public class Upload extends HttpServlet {
         try {
 
             Set<String> list_files = servletContext.getResourcePaths("/file-saved");
+            return list_files;
 
         } catch (Exception e) {
             e.printStackTrace();
             throw new ServletException(e);
         }
-        return list_files;
     }
     
     /**
