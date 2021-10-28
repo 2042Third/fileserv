@@ -3,33 +3,33 @@
     <script src="./js/jquery-3.6.0.min.js"></script>
     <script>
         $( document ).ready(function() {
+            $("button").click(function(){
+              $.post("../Upload",
+                {
+                    listings: "getfiles"
+                } ,
+                function(data,status){
+                    alert("Data: " + data + "\nStatus: " + status);
+                    $("#filelist").html("<p>"+data+"</p>");
+                });
+            });
         });
         $( window ).on( "load", function() {
-//            var txt = $("input").val();
-//              $.post("demo_ajax_gethint.asp", {suggest: txt}, function(result){
-//                $("span").html(result);
-//              });
-//            $("#filelist").
-            $.post("../Upload",
-            {
-                listings: "getfiles"
-            } ,
-            function(data,status){
-                alert("Data: " + data + "\nStatus: " + status);
-                $("#filelist").html("<p>"+data+"</p>");
+            $.ajax({
+                type: 'POST',
+                // make sure you respect the same origin policy with this url:
+                // http://en.wikipedia.org/wiki/Same_origin_policy
+                url: '../Upload',
+                data: { 
+                    'listings': 'get files'
+                },
+                success: function(msg){
+                    alert('wow' + msg);
+                }
             });
         
         });
-        $("button").click(function(){
-          $.post("../Upload",
-            {
-                listings: "getfiles"
-            } ,
-            function(data,status){
-                alert("Data: " + data + "\nStatus: " + status);
-                $("#filelist").html("<p>"+data+"</p>");
-            });
-        });
+        
     </script>
 </head>
 <body>
