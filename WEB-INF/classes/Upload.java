@@ -86,6 +86,10 @@ public class Upload extends HttpServlet {
             case FILELISTING:
                 Set<String> files=getAllFiles(request,response);
                 System.out.println("\t[FileListing] "+files);
+                ServletOutputStream responseout = response.getOutputStream();
+                String responseoutput = files;
+
+                responseout.print(responseoutput);
                 break;
 
         }
