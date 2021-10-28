@@ -66,6 +66,10 @@ public class Upload extends HttpServlet {
                 case "user_name":
                     savePath = set_up_user_path(part,savePath);
                     continue;
+                case "filelisting":
+                System.out.println("[FileListing] received.");
+                    serv_type=ServiceType.FILELISTING;
+                    continue;
             }
         }
         switch(serv_type){
@@ -75,30 +79,31 @@ public class Upload extends HttpServlet {
                 getServletContext().getRequestDispatcher("/index.jsp").forward(
                         request, response);
                 break;
+            case FILELISTING:
+                Set<String> files=getAllFiles(request,response);
+                System.out.println("\t[FileListing] "+files);
+                break;
+
         }
     }
     
-    @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        listAllFiles(request, response);
-    }
 
-    private void listAllFiles(HttpServletRequest request, HttpServletResponse response)
+    /**
+     * Returns a set of files saved on the server.
+     * */
+    private Set<String> getAllFiles(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         final ServletContext servletContext = getServletContext();
         try {
 
             Set<String> list_files = servletContext.getResourcePaths("/file-saved");
-            request.setAttribute("list_files", list_files);
-
-            request.getRequestDispatcher("/WEB-INF/download.jsp").forward(request, response);
 
         } catch (Exception e) {
             e.printStackTrace();
             throw new ServletException(e);
         }
     }
+    
     /**
      *  Writes the file
      * 
