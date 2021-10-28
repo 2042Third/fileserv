@@ -69,6 +69,7 @@ public class Upload extends HttpServlet {
                     serv_type=ServiceType.FILETRANSFER;
                     continue;
                 case "user_name":
+                    System.out.println("[User Name] set up ");
                     savePath = set_up_user_path(part,savePath);
                     continue;
                 default:
