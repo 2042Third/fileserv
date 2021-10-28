@@ -42,7 +42,7 @@
                 file_table=file_table+"<tr><th>"+b[ct]+"</th><th>Download</th></tr>";
             }
         for (const key in a["files"]){
-          if(a.hasOwnProperty(key)){
+          if(a["files"].hasOwnProperty(key)){
             console.log(`${key} : ${a[key]}`)
           }
         }
