@@ -39,8 +39,8 @@
             var ct = 0;
         console.log(a);
             for(var b in a["files"]){
-                console.log(b+"\n");
-                file_table=file_table+"<tr><th>"+b[ct]+"</th><th>Download</th></tr>";
+                console.log(a["files"][b]+"\n");
+                file_table=file_table+"<tr><th>"+a["files"][b]+"</th><th>Download</th></tr>";
             }
 
             $("#filelist").html(file_table+"");
