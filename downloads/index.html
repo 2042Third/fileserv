@@ -4,7 +4,7 @@
     <script src="./js/jquery-3.6.0.min.js"></script>
     <script>
         $( document ).ready(function() {
-//            $("button").click(function(){
+            $("button").click(function(){
                 var data = new FormData();
                 data.append('listings','files list');
                 $.ajax( {
@@ -24,7 +24,7 @@
 
                     }
                 } );
-//            });
+            });
         });
         $( window ).on( "load", function() {
             
@@ -34,22 +34,23 @@
     </script>
     <script>
     function getList(a) {
-            var file_table="<table><tr><th>File</th><th>Download</th></tr>";
-            
+//            var file_table="<table><tr><th>File</th><th>Download</th></tr>";
+            var file_table="";
+            var ct = 0;
             for(var b in a["files"]){
-                console.log(b+"\n");
-                file_table=file_table+"<tr><th>"+b+"</th><th>Download</th></tr>";
+                console.log(b[ct]+"\n");
+                file_table=file_table+"<tr><th>"+b[ct]+"</th><th>Download</th></tr>";
             }
-            $("#filelist").html(file_table+"</table>");
+            $("#filelist").html(file_table+"");
 
         }
     </script>
 </head>
 <body>
     <button>HTTP POST request </button>
-    <p id="#filelist">
+    <table id="#filelist"><tr><th>File</th><th>Download</th></tr>
     
-    </p>
+    </table>
     
 </body>
 </html>
