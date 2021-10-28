@@ -66,7 +66,7 @@ public class Upload extends HttpServlet {
                 case "user_name":
                     savePath = set_up_user_path(part,savePath);
                     continue;
-                case "filelisting":
+                case "file_listing":
                 System.out.println("[FileListing] received.");
                     serv_type=ServiceType.FILELISTING;
                     continue;

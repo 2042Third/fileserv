@@ -30,7 +30,7 @@
     </form>
     <form method="post" action="Upload"
         enctype="multipart/form-data">
-        click to test <input  name="filelisting"  /><br />
+        click to test <input  name="file_listing"  /><br />
         <br /> <input type="submit" value="Upload" />
     </form>
 </center>
