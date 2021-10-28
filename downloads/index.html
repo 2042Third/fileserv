@@ -15,10 +15,10 @@
                     success: function(data) {
                         var response = jQuery.parseJSON(data);
                         if(response.code == "success") {
-                            alert("Success!");
+                            console.log("Success!");
                             getList(response);
                         } else if(response.code == "failure") {
-                            alert(response.err);
+                            console.log(response.err);
                         }
                     }
                 } );
