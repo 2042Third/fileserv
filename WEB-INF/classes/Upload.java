@@ -54,9 +54,9 @@ public class Upload extends HttpServlet {
         }
         String fileName = "";
         for (Part part : request.getParts()) {
-            System.out.println("Part: "+part.getName());
+            System.out.println("Part: "+part.getName().trim());
             //get the purpose of the connection, and resolve
-            switch(part.getName()){
+            switch(part.getName().trim()){
                 case "file":
                     String fileNameTmp = extractFileName(part);
                     System.out.println("[FileName] Read "+fileNameTmp);
