@@ -35,7 +35,11 @@
 //        console.log(a);
         for(var b in a["files"]){
             console.log(a["files"][b]+"\n");
-            var file_table="<tr><th>"+a["files"][b]+"</th><th>Download</th></tr>";
+            var tmp =a["files"][b];
+            var hlink = "<a href=\"https://pdm.pw/fileserv"+tmp+"\">download</a>";
+            var file_table="<tr><th>"+tmp+"</th><th>"+
+                hlink
+                +"</th></tr>";
             $("#filelist").append(file_table);
         }
     }
