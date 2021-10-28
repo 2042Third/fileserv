@@ -71,6 +71,8 @@ public class Upload extends HttpServlet {
                 case "user_name":
                     savePath = set_up_user_path(part,savePath);
                     continue;
+                default:
+                    System.out.println("[Request] Unkown request: "+tmppart);
             }
         }
         switch(serv_type){
