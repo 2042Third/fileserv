@@ -24,12 +24,7 @@
         <br /> <input type="submit" value="Upload" />
     </form>
     </br>
-
-    <form method="post" action="Upload"
-        enctype="multipart/form-data">
-        click to test <input  name="file_listing"  /><br />
-        <br /> <input type="submit" value="Upload" />
-    </form>
+    <a href=https://pdm.pw/fileserv/download> download files </a>;
 </center>
 
 

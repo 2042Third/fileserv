@@ -1,6 +1,9 @@
 <!doctype html>
 <html lang="en">
 <head>
+    
+    <link rel='stylesheet' href='../style.css'  type="text/css" >
+    <title>Unencrypted File Upload</title>
     <script src="./js/jquery-3.6.0.min.js"></script>
     <script>
     $( document ).ready(function() {
@@ -50,14 +53,28 @@
     </script>
 </head>
 <body>
-    <button>HTTP POST request </button>
-    <table border=1>
-        <thead>
-            <tr><th>File</th><th>Download</th></tr>
-        </thead>
-        <tbody id="filelist">
-        </tbody>
-    </table>
+<!--    <button>HTTP POST request </button>-->
+    <h2>
+    File Server
+    </h2>
+    <center>
+        <table border=1>
+            <thead>
+                <tr><th>File</th><th>Download</th></tr>
+            </thead>
+            <tbody id="filelist">
+            </tbody>
+        </table>
+    </center>
+
     
 </body>
+    
+<footer>
+  <a href="https://github.com/2042third" target="_blank">Source</a>
+  <br><br>
+  <span id="version"></span><br>
+  Copyright (c) 2021 Yang Yi<br>
+  <a href="https://dryangyi.com" target="_blank">dryangyi.com</a>
+</footer>
 </html>
