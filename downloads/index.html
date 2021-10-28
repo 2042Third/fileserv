@@ -16,6 +16,7 @@
                         var response = jQuery.parseJSON(data);
                         if(response.code == "success") {
                             alert("Success!");
+                            getList(response);
                         } else if(response.code == "failure") {
                             alert(response.err);
                         }
@@ -26,6 +27,11 @@
         $( window ).on( "load", function() {
             
         });
+        function getList(a) {
+          for(var b in a){
+            console.log(b+"\n");
+          }
+        }
         
     </script>
 </head>
