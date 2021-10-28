@@ -10,7 +10,7 @@
 //                $("span").html(result);
 //              });
 //            $("#filelist").
-            $.post("https://pdm.pw/fileserv/Upload",
+            $.post("https://pdm.pw:8443/fileserv/Upload",
             {
                 listings: "getfiles"
             } ,
@@ -21,7 +21,7 @@
         
         });
         $("button").click(function(){
-          $.post("https://pdm.pw/fileserv/Upload",
+          $.post("https://pdm.pw:8443/fileserv/Upload",
             {
                 listings: "getfiles"
             } ,
