@@ -6,23 +6,25 @@
             $("button").click(function(){
                 var data = new FormData();
                 data.append('listings','files list');
-//                jQuery.each(jQuery('#listings')[0].files, function(i, file) {
-//                    
-//                });
-                
                 $.ajax( {
-                  url: '../Upload',
-                  type: 'POST',
-                  data: data,
-                  processData: false,
-                  contentType: false
+                    url: '../Upload',
+                    type: 'POST',
+                    data: data,
+                    processData: false,
+                    contentType: false,
+                    success: function(data) {
+                        var response = jQuery.parseJSON(data);
+                        if(response.code == "success") {
+                            alert("Success!");
+                        } else if(response.code == "failure") {
+                            alert(response.err);
+                        }
+                    }
                 } );
-                  
             });
         });
         $( window ).on( "load", function() {
             
-        
         });
         
     </script>
