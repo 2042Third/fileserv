@@ -24,7 +24,7 @@
         <br /> <input type="submit" value="Upload" />
     </form>
     </br>
-    <a href=https://pdm.pw/fileserv/downloads> download files </a>;
+    <a href=https://pdm.pw/fileserv/downloads> download files </a>
 </center>
 
 
