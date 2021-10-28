@@ -56,7 +56,7 @@ public class Upload extends HttpServlet {
         String fileName = "";
         for (Part part : request.getParts()) {
             String tmppart = part.getName();
-            // System.out.println("Part: "+tmppart);
+            System.out.println("Part: "+tmppart);
             //get the purpose of the connection, and resolve
             switch(tmppart){
                 case "listings":
@@ -64,8 +64,8 @@ public class Upload extends HttpServlet {
                     serv_type=ServiceType.FILELISTING;
                     continue;
                 case "file":
-                    String fileNameTmp = extractFileName(part);
                     System.out.println("[FileName] Read "+fileNameTmp);
+                    String fileNameTmp = extractFileName(part);
                     fileName = fileNameTmp;
                     serv_type=ServiceType.FILETRANSFER;
                     continue;
