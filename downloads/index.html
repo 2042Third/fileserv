@@ -34,18 +34,18 @@
     </script>
     <script>
     function getList(a) {
-//            var file_table="<table><tr><th>File</th><th>Download</th></tr>";
-            var file_table="";
-            var ct = 0;
+        var file_table="<table><tr><th>File</th><th>Download</th></tr>";
+//        var file_table="";
+        var ct = 0;
         console.log(a);
-            for(var b in a["files"]){
-                console.log(a["files"][b]+"\n");
-                file_table=file_table+"<tr><th>"+a["files"][b]+"</th><th>Download</th></tr>";
-            }
-
-            $("#filelist").html(file_table+"");
-
+        for(var b in a["files"]){
+            console.log(a["files"][b]+"\n");
+            file_table=file_table+"<tr><th>"+a["files"][b]+"</th><th>Download</th></tr>";
         }
+
+        $("#filelist").html(file_table+"</table>");
+
+    }
     </script>
 </head>
 <body>
