@@ -58,6 +58,10 @@ public class Upload extends HttpServlet {
             System.out.println("Part: "+tmppart);
             //get the purpose of the connection, and resolve
             switch(tmppart){
+                case "file_listing":
+                    System.out.println("[FileListing] received.");
+                    serv_type=ServiceType.FILELISTING;
+                    continue;
                 case "file":
                     String fileNameTmp = extractFileName(part);
                     System.out.println("[FileName] Read "+fileNameTmp);
@@ -66,10 +70,6 @@ public class Upload extends HttpServlet {
                     continue;
                 case "user_name":
                     savePath = set_up_user_path(part,savePath);
-                    continue;
-                case "file_listing":
-                    System.out.println("[FileListing] received.");
-                    serv_type=ServiceType.FILELISTING;
                     continue;
             }
         }
