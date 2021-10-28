@@ -28,13 +28,13 @@
             
         });
         function getList(a) {
-            $("#filelist").html("<table><tr><th>File</th><th>Download</th></tr>");
+            var file_table="<table><tr><th>File</th><th>Download</th></tr>";
+            
             for(var b in a["files"]){
                 console.log(b+"\n");
-                $("#filelist").html("<tr><th>"+b+"</th><th>Download</th></tr>");
-
+                file_table=file_table+"<tr><th>"+b+"</th><th>Download</th></tr>";
             }
-            $("#filelist").html("</table>");
+            $("#filelist").html(file_table+"</table>");
 
         }
         
