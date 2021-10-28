@@ -4,29 +4,26 @@
     <script>
         $( document ).ready(function() {
             $("button").click(function(){
-              $.post("../Upload",
-                {
-                    listings: "getfiles"
-                } ,
-                function(data,status){
-                    alert("Data: " + data + "\nStatus: " + status);
-                    $("#filelist").html("<p>"+data+"</p>");
+                var data = new FormData();
+                jQuery.each(jQuery('#file')[0].files, function(i, file) {
+                    data.append('file-'+i, file);
+                });
+                $.ajax({
+                    url: '../Upload',
+                    data: data,
+                    cache: false,
+                    contentType: false,
+                    processData: false,
+                    method: 'POST',
+                    type: 'POST', // For jQuery < 1.9
+                    success: function(data){
+                        alert(data);
+                    }
                 });
             });
         });
         $( window ).on( "load", function() {
-            $.ajax({
-                type: 'POST',
-                // make sure you respect the same origin policy with this url:
-                // http://en.wikipedia.org/wiki/Same_origin_policy
-                url: '../Upload',
-                data: { 
-                    'listings': 'get files'
-                },
-                success: function(msg){
-                    alert('wow' + msg);
-                }
-            });
+            
         
         });
         
