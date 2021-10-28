@@ -55,7 +55,7 @@ public class Upload extends HttpServlet {
         String fileName = "";
         for (Part part : request.getParts()) {
             String tmppart = part.getName();
-            System.out.println("Part: "+tmppart);
+            // System.out.println("Part: "+tmppart);
             //get the purpose of the connection, and resolve
             switch(tmppart){
                 case "listings":
