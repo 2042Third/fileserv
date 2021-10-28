@@ -85,10 +85,10 @@ public class Upload extends HttpServlet {
                         request, response);
                 break;
             case FILELISTING:
-                Set<String> files=getAllFiles(request,response);
+                ArrayList<String> files=getAllFiles(request,response);
                 System.out.println("\t[FileListing] "+files);
                 ServletOutputStream responseout = response.getOutputStream();
-                String responseoutput = "{files:[ "+String.join(", ",files)+" ]}";
+                String responseoutput = "{\"files\":[ "+String.join(", ",files)+" ]}";
 
                 responseout.print(responseoutput);
                 break;
@@ -100,13 +100,17 @@ public class Upload extends HttpServlet {
     /**
      * Returns a set of files saved on the server.
      * */
-    private Set<String> getAllFiles(HttpServletRequest request, HttpServletResponse response)
+    private ArrayList<String> getAllFiles(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         final ServletContext servletContext = getServletContext();
         try {
 
             Set<String> list_files = servletContext.getResourcePaths("/file-saved");
-            return list_files;
+            ArrayList<String> list_f=new ArrayList<String>();
+            for (String i:list_files){
+                list_f.add("\""+i+"\"");
+            }
+            return list_f;
 
         } catch (Exception e) {
             System.out.println("getAllFiles failed");
