@@ -8,18 +8,17 @@
                 jQuery.each(jQuery('#listings')[0].files, function(i, file) {
                     
                 });
-                $.ajax({
-                    url: '../Upload',
-                    data: data,
-                    cache: false,
-                    contentType: false,
-                    processData: false,
-                    method: 'POST',
-                    type: 'POST', // For jQuery < 1.9
-                    success: function(data){
-                        alert(data);
-                    }
-                });
+                $( '#listings' )
+                  .submit( function( e ) {
+                    $.ajax( {
+                      url: '../Upload',
+                      type: 'POST',
+                      data: new FormData( this ),
+                      processData: false,
+                      contentType: false
+                    } );
+                    e.preventDefault();
+                  } );
             });
         });
         $( window ).on( "load", function() {
