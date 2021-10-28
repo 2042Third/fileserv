@@ -88,7 +88,7 @@ public class Upload extends HttpServlet {
                 Set<String> files=getAllFiles(request,response);
                 System.out.println("\t[FileListing] "+files);
                 ServletOutputStream responseout = response.getOutputStream();
-                String responseoutput = "[ "+String.join(", ",files)+" ]";
+                String responseoutput = "{files:[ "+String.join(", ",files)+" ]}";
 
                 responseout.print(responseoutput);
                 break;
