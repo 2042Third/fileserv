@@ -109,6 +109,7 @@ public class Upload extends HttpServlet {
             return list_files;
 
         } catch (Exception e) {
+            System.out.println("getAllFiles failed");
             e.printStackTrace();
             throw new ServletException(e);
         }
