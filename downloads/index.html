@@ -16,7 +16,7 @@
                         var response = jQuery.parseJSON(data);
                         if(response.code == "success") {
                             alert("Success!");
-                            this.getList(response);
+                            getList(response);
                         } else if(response.code == "failure") {
                             alert(response.err);
                         }
@@ -27,7 +27,11 @@
         $( window ).on( "load", function() {
             
         });
-        function getList(a) {
+        
+        
+    </script>
+    <script>
+    function getList(a) {
             var file_table="<table><tr><th>File</th><th>Download</th></tr>";
             
             for(var b in a["files"]){
@@ -37,7 +41,6 @@
             $("#filelist").html(file_table+"</table>");
 
         }
-        
     </script>
 </head>
 <body>
