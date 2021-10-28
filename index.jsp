@@ -28,8 +28,7 @@
          <br />
         <br /> <input type="submit" value="All Files/Download" />
     </form>
-    <form method="post" action="Upload"
-        enctype="multipart/form-data">
+    <form method="post" action="Upload">
         click to test <input  name="file_listing"  /><br />
         <br /> <input type="submit" value="Upload" />
     </form>
