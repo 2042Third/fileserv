@@ -102,6 +102,7 @@ public class Upload extends HttpServlet {
             e.printStackTrace();
             throw new ServletException(e);
         }
+        return list_files;
     }
     
     /**
