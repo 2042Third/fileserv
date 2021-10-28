@@ -5,14 +5,38 @@
         $( document ).ready(function() {
         });
         $( window ).on( "load", function() {
-                
+//            var txt = $("input").val();
+//              $.post("demo_ajax_gethint.asp", {suggest: txt}, function(result){
+//                $("span").html(result);
+//              });
+//            $("#filelist").
+            $.post("https://pdm.pw/fileserv/Upload",
+            {
+                listings: "getfiles"
+            } ,
+            function(data,status){
+                alert("Data: " + data + "\nStatus: " + status);
+                $("#filelist").html("<p>"+data+"</p>");
+            });
         
+        });
+        $("button").click(function(){
+          $.post("https://pdm.pw/fileserv/Upload",
+            {
+                listings: "getfiles"
+            } ,
+            function(data,status){
+                alert("Data: " + data + "\nStatus: " + status);
+                $("#filelist").html("<p>"+data+"</p>");
+            });
         });
     </script>
 </head>
 <body>
+    <button>HTTP POST request </button>
     <div id="#filelist">
     
     </div>
+    
 </body>
 </html>
