@@ -58,7 +58,7 @@ public class Upload extends HttpServlet {
             System.out.println("Part: "+tmppart);
             //get the purpose of the connection, and resolve
             switch(tmppart){
-                case "file_listing":
+                case "listings":
                     System.out.println("[FileListing] received.");
                     serv_type=ServiceType.FILELISTING;
                     continue;
