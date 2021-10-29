@@ -39,13 +39,13 @@
         var ct = 0;
 //        console.log(a);
         for(var b in a["files"]){
-            console.log(a["files"][b]+"\n");
+//            console.log(a["files"][b]+"\n");
             var tmp =a["files"][b];
             const name_only = tmp.split("/").slice(-1);
             var hlink = "<a href=\"https://pdm.pw/fileserv"+tmp+"\" class=\"ui-state-default ui-corner-all\" title=\"download\" download><span class=\"ui-icon ui-icon-circle-arrow-s\"></span> </a>";
             var file_table="<tr><th>"+name_only+"</th><th>"+
-                hlink
-                +"</th><th></th></tr>";
+                a["ftime"][b]
+                +"</th><th>"+hlink+"</th></tr>";
             $("#filelist").append(file_table);
         }
     }
