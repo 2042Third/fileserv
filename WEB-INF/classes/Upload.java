@@ -18,6 +18,9 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.ServletOutputStream;
 import java.io.InputStreamReader;
 import javax.servlet.http.Part;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.attribute.BasicFileAttributes;
 @WebServlet("/Upload")
 @MultipartConfig(fileSizeThreshold= 1024 * 1024 * 1, // 1MB
                  maxFileSize=-1L,      // any
@@ -88,14 +91,30 @@ public class Upload extends HttpServlet {
                 ArrayList<String> files=getAllFiles(request,response);
                 System.out.println("\t[FileListing] "+files);
                 ServletOutputStream responseout = response.getOutputStream();
-                String responseoutput = "{\"files\":[ "+String.join(", ",files)+" ]}";
-
+                
+                String responseoutput = "{\"files\":["+String.join(",",files)+" ],"+
+                String.join(",",getFtime(files))
+                "}";
                 responseout.print(responseoutput);
                 break;
 
         }
     }
     
+    private List<String> getFtime(List<String> a){
+        BasicFileAttributes fatr = Files.readAttributes("./",
+                                    BasicFileAttributes.class);
+        String ft="";
+        ArrayList<String> ftime = new ArrayList<String> ;
+        for (String b : a){
+            fatr = Files.readAttributes("."+b,
+                                        BasicFileAttributes.class);
+            ft=fatr.lastModifiedTime()+"";
+            ftime.add(b+":"+ft);
+        }
+        return ftime;
+
+    }
 
     /**
      * Returns a set of files saved on the server.
