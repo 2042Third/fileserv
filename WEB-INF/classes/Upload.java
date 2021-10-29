@@ -105,7 +105,7 @@ public class Upload extends HttpServlet {
         BasicFileAttributes fatr = Files.readAttributes("./",
                                     BasicFileAttributes.class);
         String ft="";
-        ArrayList<String> ftime = new ArrayList<String> ;
+        ArrayList<String> ftime = new ArrayList<String>();
         for (String b : a){
             fatr = Files.readAttributes("."+b,
                                         BasicFileAttributes.class);
