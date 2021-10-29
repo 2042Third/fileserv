@@ -93,7 +93,7 @@ public class Upload extends HttpServlet {
                 ServletOutputStream responseout = response.getOutputStream();
                 
                 String responseoutput = "{\"files\":["+String.join(",",files)+" ],"+
-                String.join(",",getFtime(files))
+                String.join(",",getFtime(files))+
                 "}";
                 responseout.print(responseoutput);
                 break;
