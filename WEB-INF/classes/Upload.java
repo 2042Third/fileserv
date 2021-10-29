@@ -106,7 +106,9 @@ public class Upload extends HttpServlet {
         String ft="";
         ArrayList<String> ftime = new ArrayList<String>();
         for (String b : a){
-            fatr = Files.readAttributes(getServletContext().getRealPath(b), BasicFileAttributes.class);
+            fatr = Files.readAttributes(
+                new Path(getServletContext().getRealPath(b))
+                , BasicFileAttributes.class);
             ft=fatr.lastModifiedTime()+"";
             ftime.add(b+":"+ft);
         }
