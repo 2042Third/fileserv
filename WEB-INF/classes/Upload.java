@@ -111,7 +111,7 @@ public class Upload extends HttpServlet {
                 // (new File(servletContext.getRealPath("."+b.split("\"")[1]))).toPath()
                 (new File(servletContext.getRealPath("."+b.split("\"")[1]))).toPath()
                 , BasicFileAttributes.class);
-            ft=fatr.lastModifiedTime()+"";
+            ft="\""+fatr.lastModifiedTime()+"\"";
             ftime.add(b+":"+ft);
         }
         return ftime;
