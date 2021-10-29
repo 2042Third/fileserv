@@ -31,7 +31,6 @@ public class Upload extends HttpServlet {
      * the web application directory.
      */
     private static final String SAVE_DIR = "file-saved";
-    private static final String 
 
     public static Map<String, String> splitQuery(String query) throws UnsupportedEncodingException {
       Map<String, String> query_pairs = new LinkedHashMap<String, String>();
