@@ -41,10 +41,11 @@
         for(var b in a["files"]){
             console.log(a["files"][b]+"\n");
             var tmp =a["files"][b];
-            var hlink = "<a href=\"https://pdm.pw/fileserv"+tmp+"\" download> <li class=\"ui-state-default ui-corner-all\" title=\".ui-icon-circle-arrow-s\"><span class=\"ui-icon ui-icon-circle-arrow-s\"></span></li> </a>";
-            var file_table="<tr><th>"+tmp+"</th><th>"+
+            const name_only = tmp.split("/")[-1];
+            var hlink = "<a href=\"https://pdm.pw/fileserv"+tmp+"\" download> <li class=\"ui-state-default ui-corner-all\" title=\"download\"><span class=\"ui-icon ui-icon-circle-arrow-s\"></span></li> </a>";
+            var file_table="<tr><th>"+name_only+"</th><th>"+
                 hlink
-                +"</th></tr>";
+                +"</th><th></th></tr>";
             $("#filelist").append(file_table);
         }
     }
