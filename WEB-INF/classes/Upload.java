@@ -31,6 +31,7 @@ public class Upload extends HttpServlet {
      * the web application directory.
      */
     private static final String SAVE_DIR = "file-saved";
+    private static final String 
 
     public static Map<String, String> splitQuery(String query) throws UnsupportedEncodingException {
       Map<String, String> query_pairs = new LinkedHashMap<String, String>();
@@ -102,13 +103,11 @@ public class Upload extends HttpServlet {
     }
     
     private List<String> getFtime(List<String> a){
-        BasicFileAttributes fatr = Files.readAttributes("./",
-                                    BasicFileAttributes.class);
+        BasicFileAttributes fatr = new BasicFileAttributes();
         String ft="";
         ArrayList<String> ftime = new ArrayList<String>();
         for (String b : a){
-            fatr = Files.readAttributes("."+b,
-                                        BasicFileAttributes.class);
+            fatr = Files.readAttributes(getServletContext().getRealPath(b), BasicFileAttributes.class);
             ft=fatr.lastModifiedTime()+"";
             ftime.add(b+":"+ft);
         }
