@@ -108,8 +108,8 @@ public class Upload extends HttpServlet {
         final ServletContext servletContext = getServletContext();
         for (String b : a){
             fatr = Files.readAttributes(
-                (new File(servletContext.getRealPath(b))).toPath()
-                // (new File(b)).toPath()
+                // (new File(servletContext.getRealPath(b))).toPath()
+                (new File(b)).toPath()
                 , BasicFileAttributes.class);
             ft=fatr.lastModifiedTime()+"";
             ftime.add(b+":"+ft);
@@ -126,7 +126,7 @@ public class Upload extends HttpServlet {
         final ServletContext servletContext = getServletContext();
         try {
 
-            Set<String> list_files = servletContext.getResourcePaths("file-saved");
+            Set<String> list_files = servletContext.getResourcePaths("./file-saved");
             ArrayList<String> list_f=new ArrayList<String>();
             for (String i:list_files){
                 list_f.add("\""+i+"\"");
