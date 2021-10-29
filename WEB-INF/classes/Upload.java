@@ -101,7 +101,7 @@ public class Upload extends HttpServlet {
         }
     }
     
-    private List<String> getFtime(List<String> a){
+    private List<String> getFtime(List<String> a) throws IOException{
         BasicFileAttributes fatr ;
         String ft="";
         ArrayList<String> ftime = new ArrayList<String>();
