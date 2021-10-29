@@ -102,7 +102,7 @@ public class Upload extends HttpServlet {
     }
     
     private List<String> getFtime(List<String> a){
-        BasicFileAttributes fatr = new BasicFileAttributes();
+        BasicFileAttributes fatr ;
         String ft="";
         ArrayList<String> ftime = new ArrayList<String>();
         for (String b : a){
