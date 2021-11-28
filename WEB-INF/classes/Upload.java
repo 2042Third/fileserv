@@ -48,7 +48,7 @@ public class Upload extends HttpServlet {
      * handles file upload
      */
     protected void doPost(HttpServletRequest request,
-            HttpServletResponse response) throws ServletException, IOException, JAXBException{
+            HttpServletResponse response) throws ServletException, IOException{
 
 
 
@@ -106,8 +106,13 @@ public class Upload extends HttpServlet {
         }
         // Marshall test
         ChatMarshaller tester = new ChatMarshaller();
-        tester.test();
-        
+        try{
+            tester.test();
+        }
+        catch(Exception e){
+            System.out.println("marshelling failed!!!");
+            
+        }
     }
     
     private List<String> getFtime(List<String> a) throws IOException{
