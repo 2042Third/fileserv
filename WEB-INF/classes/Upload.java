@@ -1,5 +1,6 @@
 package fileservups;
 import fileservups.*;
+import javaserver.chat.*;
 import java.io.File;
 import java.util.*;
 import java.io.IOException;
@@ -47,6 +48,11 @@ public class Upload extends HttpServlet {
      */
     protected void doPost(HttpServletRequest request,
             HttpServletResponse response) throws ServletException, IOException {
+
+        // Marshall test
+        ChatMarshaller tester = new ChatMarshaller();
+        tester.test();
+
         System.out.println("#############FILE###############");
         ServiceType serv_type = ServiceType.NON;
         String appPath = request.getServletContext().getRealPath("");
