@@ -111,7 +111,7 @@ public class Upload extends HttpServlet {
         }
         catch(Exception e){
             System.out.println("marshelling failed!!!");
-            
+            e.printStackTrace();
         }
     }
     
