@@ -1,5 +1,5 @@
 #!bin/bash
-chown tomcat WEB-INF/lib/*
+chown tomcat WEB-INF/*
 
 # /bin/cp WEB-INF/lib/* /usr/local/tomcat/lib/
 
