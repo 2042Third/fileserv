@@ -1,6 +1,7 @@
 package fileservups;
 import fileservups.*;
 import javaserver.chat.*;
+import javax.xml.bind.JAXBException;
 import java.io.File;
 import java.util.*;
 import java.io.IOException;
@@ -47,7 +48,7 @@ public class Upload extends HttpServlet {
      * handles file upload
      */
     protected void doPost(HttpServletRequest request,
-            HttpServletResponse response) throws ServletException, IOException {
+            HttpServletResponse response) throws ServletException, IOException, JAXBException{
 
 
 
@@ -105,13 +106,8 @@ public class Upload extends HttpServlet {
         }
         // Marshall test
         ChatMarshaller tester = new ChatMarshaller();
-        try{
-            tester.test();
-        }
-        catch(Exception e){
-            System.out.println("marshelling failed!!!");
-            
-        }
+        tester.test();
+        
     }
     
     private List<String> getFtime(List<String> a) throws IOException{
