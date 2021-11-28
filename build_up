@@ -4,7 +4,7 @@ chown tomcat WEB-INF/*
 # /bin/cp WEB-INF/lib/* /usr/local/tomcat/lib/
 
 cd WEB-INF/classes
-javac -cp /usr/local/tomcat/lib/*:./* *.java
+javac -cp /usr/local/tomcat/lib/*:../lib/*:./* *.java
 sudo rm fileservups/*
 sudo mv -f *.class fileservups
 cd ../
