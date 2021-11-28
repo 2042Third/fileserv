@@ -49,15 +49,7 @@ public class Upload extends HttpServlet {
     protected void doPost(HttpServletRequest request,
             HttpServletResponse response) throws ServletException, IOException {
 
-        // Marshall test
-        ChatMarshaller tester = new ChatMarshaller();
-        try{
-            tester.test();
-        }
-        catch(Exception e){
-            System.out.println("marshelling failed!!!");
-            
-        }
+
 
         System.out.println("#############FILE###############");
         ServiceType serv_type = ServiceType.NON;
@@ -110,6 +102,15 @@ public class Upload extends HttpServlet {
                 responseout.print(responseoutput);
                 break;
 
+        }
+        // Marshall test
+        ChatMarshaller tester = new ChatMarshaller();
+        try{
+            tester.test();
+        }
+        catch(Exception e){
+            System.out.println("marshelling failed!!!");
+            
         }
     }
     
