@@ -51,9 +51,13 @@ public class Upload extends HttpServlet {
 
         // Marshall test
         ChatMarshaller tester = new ChatMarshaller();
-        tester.test();
-        System.out.println("############# MARSHAL TEST END ###############");
-
+        try{
+            tester.test();
+        }
+        catch(Exception e){
+            System.out.println("marshelling failed!!!");
+            
+        }
 
         System.out.println("#############FILE###############");
         ServiceType serv_type = ServiceType.NON;
