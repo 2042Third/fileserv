@@ -1,7 +1,7 @@
 #!bin/bash
 chown tomcat WEB-INF/lib/*
 
-cp WEB-INF/lib/* /usr/local/tomcat/lib/
+/bin/cp WEB-INF/lib/* /usr/local/tomcat/lib/
 
 cd WEB-INF/classes
 javac -cp /usr/local/tomcat/lib/*:./* *.java
