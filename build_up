@@ -1,4 +1,6 @@
 #!bin/bash
+cp WEB-INF/lib/* /usr/local/tomcat/lib/
+
 cd WEB-INF/classes
 javac -cp /usr/local/tomcat/lib/*:./* *.java
 sudo rm fileservups/*
