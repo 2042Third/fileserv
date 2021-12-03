@@ -9,7 +9,6 @@
     <link rel="stylesheet" href="./jquery-ui-1.13.0/jquery-ui.css">
     <script>
     $( document ).ready(function() {
-//        $("button").click(function(){
             var data = new FormData();
             data.append('listings','files list');
             $.ajax( {
@@ -26,10 +25,8 @@
                         console.log(response.err);
                     }
                     getList(response);
-
                 }
             } );
-//        });
     });
     $( window ).on( "load", function() {
 

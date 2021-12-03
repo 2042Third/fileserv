@@ -77,6 +77,9 @@ public class Upload extends HttpServlet {
                     fileName = fileNameTmp;
                     serv_type=ServiceType.FILETRANSFER;
                     continue;
+                case "chatreg":
+                    serv_type=ServiceType.CHATREG;
+                    continue;
                 case "user_name":
                     savePath = set_up_user_path(part,savePath);
                     System.out.println("[User Name] set up ");
@@ -86,6 +89,10 @@ public class Upload extends HttpServlet {
             }
         }
         switch(serv_type){
+            case CHATREG:
+                System.out.println("[CHATREG] Chat Client IP: "+ request.getRemoteAddr());
+                // Need to log the url/ip, and create socket connection and send to it
+                break;
             case FILETRANSFER:
                 save_the_file(fileName,savePath, request.getPart("file"));
                 request.setAttribute("message", "File has been uploaded.");
@@ -108,7 +115,6 @@ public class Upload extends HttpServlet {
         ChatMarshaller tester = new ChatMarshaller();
         try{
             tester.reader_test();
-            System.out.println("Client IP: "+ request.getRemoteAddr());
         }
         catch(Exception e){
             System.out.println("marshelling failed!!!");
