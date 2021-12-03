@@ -107,7 +107,8 @@ public class Upload extends HttpServlet {
         // Marshall test
         ChatMarshaller tester = new ChatMarshaller();
         try{
-            tester.test();
+            tester.reader_test();
+            System.out.println("Client IP: "+ request.getRemoteAddr());
         }
         catch(Exception e){
             System.out.println("marshelling failed!!!");
