@@ -145,7 +145,7 @@ public class Upload extends HttpServlet {
         //     a += "\t"+b;
         //     a += "\n";
         // }
-        for (Enumeration<E> e = part.getHeaderNames(); e.hasMoreElements();){
+        for (Enumeration<String> e = part.getHeaderNames(); e.hasMoreElements();){
             // System.out.println(e.nextElement());
             a += "\t"+e.nextElement();
             a += "\n";
