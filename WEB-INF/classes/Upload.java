@@ -52,7 +52,6 @@ public class Upload extends HttpServlet {
 
 
 
-        System.out.println("#############FILE###############");
         ServiceType serv_type = ServiceType.NON;
         String appPath = request.getServletContext().getRealPath("");
         String savePath = appPath + File.separator + SAVE_DIR;
@@ -62,6 +61,7 @@ public class Upload extends HttpServlet {
             fileSaveDir.mkdir();
         }
         String fileName = "";
+        System.out.println("[INCOMING] \n" + get_all_headers(request));
         for (Part part : request.getParts()) {
             String tmppart = part.getName();
             System.out.println("Part: "+tmppart);
@@ -128,6 +128,18 @@ public class Upload extends HttpServlet {
      * 
      * */
     private String get_all_headers (Part part){
+        String a="";
+        for (String b: part.getHeaderNames()){
+            a += "\t"+b;
+            a += "\n";
+        }
+        return a;
+    }
+    /**
+     * Return all of the headers in thsi part as a string
+     * 
+     * */
+    private String get_all_headers (HttpServletRequest part){
         String a="";
         for (String b: part.getHeaderNames()){
             a += "\t"+b;
