@@ -65,7 +65,7 @@ public class Upload extends HttpServlet {
         for (Part part : request.getParts()) {
             String tmppart = part.getName();
             System.out.println("Part: "+tmppart);
-            //get the purpose of the connection, and resolve
+            //get the purpose of the connection, and resolve 
             switch(tmppart){
                 case "listings":
                     System.out.println("[FileListing] received.");
@@ -79,6 +79,7 @@ public class Upload extends HttpServlet {
                     continue;
                 case "chatreg":
                     serv_type=ServiceType.CHATREG;
+                    System.out.println("[Chat Registration] set up: \n" + get_all_headers(part));
                     continue;
                 case "user_name":
                     savePath = set_up_user_path(part,savePath);
@@ -122,6 +123,19 @@ public class Upload extends HttpServlet {
         }
     }
     
+    /**
+     * Return all of the headers in thsi part as a string
+     * 
+     * */
+    private String get_all_headers (Part part){
+        String a="";
+        for (String b: part){
+            a += "\t"+b;
+            a += "\n";
+        }
+        return a;
+    }
+
     private List<String> getFtime(List<String> a) throws IOException{
         BasicFileAttributes fatr ;
         String ft="";
