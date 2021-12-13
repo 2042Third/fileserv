@@ -141,10 +141,10 @@ public class Upload extends HttpServlet {
      * */
     private String get_all_headers (HttpServletRequest part){
         String a="";
-        for (String b: part.getHeaderNames()){
-            a += "\t"+b;
-            a += "\n";
-        }
+        // for (String b: part.getHeaderNames()){
+        //     a += "\t"+b;
+        //     a += "\n";
+        // }
         for (Enumeration<E> e = part.getHeaderNames().elements(); e.hasMoreElements();){
             // System.out.println(e.nextElement());
             a += "\t"+e.nextElement();
