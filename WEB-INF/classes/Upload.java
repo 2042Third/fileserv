@@ -113,14 +113,14 @@ public class Upload extends HttpServlet {
 
         }
         // Marshall test
-        ChatMarshaller tester = new ChatMarshaller();
-        try{
-            tester.reader_test();
-        }
-        catch(Exception e){
-            System.out.println("marshelling failed!!!");
-            e.printStackTrace();
-        }
+        // ChatMarshaller tester = new ChatMarshaller();
+        // try{
+        //     tester.reader_test();
+        // }
+        // catch(Exception e){
+        //     System.out.println("marshelling failed!!!");
+        //     e.printStackTrace();
+        // }
     }
     
     /**
