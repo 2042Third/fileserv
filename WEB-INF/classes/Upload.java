@@ -61,7 +61,7 @@ public class Upload extends HttpServlet {
             fileSaveDir.mkdir();
         }
         String fileName = "";
-        System.out.println("[INCOMING] \n" + get_all_headers(request));
+        System.out.println("[INCOMING] \n");
         for (Part part : request.getParts()) {
             String tmppart = part.getName();
             System.out.println("Part: "+tmppart);
