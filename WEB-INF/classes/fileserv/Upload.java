@@ -1,5 +1,5 @@
 package fileservups;
-import fileservups.*;
+import fileservups.ServiceType;
 import javaserver.chat.*;
 
 import jakarta.xml.bind.JAXBException;
