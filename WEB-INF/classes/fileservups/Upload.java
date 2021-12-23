@@ -110,6 +110,7 @@ public class Upload extends HttpServlet {
                 
                 String responseoutput = "{\"files\":["+String.join(",",files)+" ],"+
                 "\"ftimes\":{"+String.join(",",getFtime(files))+"}"+
+                "\"fsizes\":{"+String.join(",",getFsize(files))+"}"+
                 "}";
                 responseout.print(responseoutput);
                 break;
@@ -158,12 +159,7 @@ public class Upload extends HttpServlet {
      * */
     private String get_all_headers (HttpServletRequest part){
         String a="";
-        // for (String b: part.getHeaderNames()){
-        //     a += "\t"+b;
-        //     a += "\n";
-        // }
         for (Enumeration<String> e = part.getHeaderNames(); e.hasMoreElements();){
-            // System.out.println(e.nextElement());
             a += "\t"+e.nextElement();
             a += "\n";
         }
@@ -180,7 +176,22 @@ public class Upload extends HttpServlet {
                 // (new File(servletContext.getRealPath("."+b.split("\"")[1]))).toPath()
                 (new File(servletContext.getRealPath("."+b.split("\"")[1]))).toPath()
                 , BasicFileAttributes.class);
-            ft="\""+fatr.lastModifiedTime()+"\"";
+            ft="\""+fatr.lastModifiedTime().split(".")[0].replace("T"," ")+"\"";
+            ftime.add(b+":"+ft);
+        }
+        return ftime;
+
+    }
+    private List<String> getFsize(List<String> a) throws IOException{
+        BasicFileAttributes fatr ;
+        String ft="";
+        ArrayList<String> ftime = new ArrayList<String>();
+        final ServletContext servletContext = getServletContext();
+        for (String b : a){
+            fatr = Files.readAttributes(
+                (new File(servletContext.getRealPath("."+b.split("\"")[1]))).toPath()
+                , BasicFileAttributes.class);
+            ft="\""+fatr.size()+"\"";
             ftime.add(b+":"+ft);
         }
         return ftime;
