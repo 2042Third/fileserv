@@ -107,7 +107,7 @@ public class Upload extends HttpServlet {
                 break;
             case FILETRANSFER:
                 String tstr =save_the_file(fileName,savePath, request.getPart("file"));
-                track_write("."+savePath + File.separator + new File(fileName).getName(), "FILETRANSFER", tstr, psize);
+                track_write(savePath + File.separator + new File(fileName).getName(), "FILETRANSFER", tstr, psize);
                 request.setAttribute("message", "File has been uploaded.");
                 getServletContext().getRequestDispatcher("/index.jsp").forward(
                         request, response);
@@ -270,6 +270,7 @@ public class Upload extends HttpServlet {
                 rt="create";
             fileName = f.getName();
             part.write(savePath + File.separator + fileName);
+            return rt;
         }
         return "none";
     }
