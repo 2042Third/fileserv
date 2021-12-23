@@ -26,7 +26,7 @@ public class FileTracking {
         }
     }
 
-    private Boolean exc_emplace_5 (String query, String a1,String a2,String a3,String a4,String a5){
+    public Boolean exc_emplace_5 (String query, String a1,String a2,String a3,String a4,String a5){
         try { 
             PreparedStatement stat = con.prepareStatement(query);
             stat.setString(1, a1);
