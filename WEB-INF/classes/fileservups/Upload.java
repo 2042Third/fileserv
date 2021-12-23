@@ -108,9 +108,9 @@ public class Upload extends HttpServlet {
                 System.out.println("\t[FileListing] "+files);
                 ServletOutputStream responseout = response.getOutputStream();
                 
-                String responseoutput = "{\"files\":["+String.join(",",files)+" ],"+
-                "\"ftimes\":{"+String.join(",",getFtime(files))+"}"+
-                "\"fsizes\":{"+String.join(",",getFsize(files))+"}"+
+                String responseoutput = "{\"files\":["+String.join(",",files)+" ]"+
+                ",\"ftimes\":{"+String.join(",",getFtime(files))+"}"+
+                ",\"fsizes\":{"+String.join(",",getFsize(files))+"}"+
                 "}";
                 responseout.print(responseoutput);
                 break;
