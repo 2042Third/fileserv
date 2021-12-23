@@ -218,22 +218,23 @@ public class Upload extends HttpServlet {
         File f = new File(servletContext.getRealPath("."+a.replace("\"","")));
         // File b= File(servletContext.getRealPath("."+a.replace("\"","")));
         try{
-            fatr = Files.readAttributes(
+            BasicFileAttributes fatr = Files.readAttributes(
                     f.toPath()
                     , BasicFileAttributes.class);
+            String action = f.exists()? "overwrite" : "create";
+            ftrack.exc_emplace_5(
+                "insert into fileservtracks(filename, action, time, size, status) values (\"?\",\"?\",\"?\",\"?\",\"?\");",
+                f.getPath(),
+                action,
+                cur_time,
+                (fatr!=null)?(fatr.size()+""):("*no time avaliable"),
+                b
+                );
         }
         catch (Exception e){
             System.out.println("[fileservups] reading file atribute failure.");
         }
-        String action = f.exists()? "overwrite" : "create";
-        ftrack.exc_emplace_5(
-            "insert into fileservtracks(filename, action, time, size, status) values (\"?\",\"?\",\"?\",\"?\",\"?\");",
-            f.getPath(),
-            action,
-            cur_time,
-            (fatr!=null)?(fatr.size()+""):("*no time avaliable"),
-            b
-            );
+        
         return true;
 
     }
