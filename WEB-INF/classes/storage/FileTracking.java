@@ -22,6 +22,7 @@ public class FileTracking {
                     );
         }
         catch (Exception e) {
+            e.printStackTrace();
             System.out.println("[file tracker storage] login failure");
             return false;
         }
