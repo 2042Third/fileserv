@@ -1,5 +1,6 @@
 package fileservups;
 import fileservups.ServiceType;
+import storage.FileTracking;
 import javaserver.chat.*;
 
 import jakarta.xml.bind.JAXBException;
@@ -34,7 +35,7 @@ public class Upload extends HttpServlet {
      * the web application directory.
      */
     private static final String SAVE_DIR = "file-saved";
-
+    private FileTracking ftrack = new FileTracking();
     public static Map<String, String> splitQuery(String query) throws UnsupportedEncodingException {
       Map<String, String> query_pairs = new LinkedHashMap<String, String>();
       String[] pairs = query.split("&");
@@ -53,7 +54,11 @@ public class Upload extends HttpServlet {
 
 
         System.out.println("[INCOMING FILE] \n");
-
+        ftrack.login(
+            "jdbc:mysql://127.0.0.1:3306/pdmfile",
+            "pdm-files",
+            "93eab1de880e03cc3f04f505298b3ab47034b784e3dd969d1f3d08f6978f0bb9"
+            );
         ServiceType serv_type = ServiceType.NON;
         String appPath = request.getServletContext().getRealPath("");
         String savePath = appPath + File.separator + SAVE_DIR;
@@ -98,6 +103,7 @@ public class Upload extends HttpServlet {
                 chat_resolve(request, response);
                 break;
             case FILETRANSFER:
+                ftrack.track_write(savePath + File.separator + new File(fileName).getName(), "FILETRANSFER");
                 save_the_file(fileName,savePath, request.getPart("file"));
                 request.setAttribute("message", "File has been uploaded.");
                 getServletContext().getRequestDispatcher("/index.jsp").forward(
@@ -116,6 +122,7 @@ public class Upload extends HttpServlet {
                 break;
 
         }
+        ftrack.logout();
         // Marshall test
         // ChatMarshaller tester = new ChatMarshaller();
         // try{
@@ -200,6 +207,27 @@ public class Upload extends HttpServlet {
             ftime.add(b+":"+ft);
         }
         return ftime;
+
+    }
+    private Boolean track_write(String a, String b) {
+        BasicFileAttributes fatr ;
+        String ft="";
+        String cur_time = new Date().getTime().toString();
+        File f = new File(servletContext.getRealPath("."+a.replace("\"","")));
+        final ServletContext servletContext = getServletContext();
+        // File b= File(servletContext.getRealPath("."+a.replace("\"","")));
+        fatr = Files.readAttributes(
+                f.toPath()
+                , BasicFileAttributes.class);
+        String action = f.exists()? "overwrite" : "create";
+        ftrack.exc_emplace_5(
+            "insert into fileservtracks(filename, action, time, size, status) values (\"?\",\"?\",\"?\",\"?\",\"?\");",
+            action,
+            cur_time,
+            fatr.size(),
+            b
+            );
+        return true;
 
     }
 
