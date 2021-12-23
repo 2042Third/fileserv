@@ -107,7 +107,7 @@ public class Upload extends HttpServlet {
                 break;
             case FILETRANSFER:
                 String tstr =save_the_file(fileName,savePath, request.getPart("file"));
-                track_write("."+savePath + File.separator + new File(fileName).getName(), "FILETRANSFER", tstr);
+                track_write("."+savePath + File.separator + new File(fileName).getName(), "FILETRANSFER", tstr, psize);
                 request.setAttribute("message", "File has been uploaded.");
                 getServletContext().getRequestDispatcher("/index.jsp").forward(
                         request, response);
