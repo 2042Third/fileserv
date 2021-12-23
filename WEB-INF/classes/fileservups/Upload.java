@@ -69,6 +69,7 @@ public class Upload extends HttpServlet {
             fileSaveDir.mkdir();
         }
         String fileName = "";
+        String psize="";
         System.out.println("[INCOMING] \n");
         for (Part part : request.getParts()) {
             String tmppart = part.getName();
@@ -81,6 +82,7 @@ public class Upload extends HttpServlet {
                     continue;
                 case "file":
                     String fileNameTmp = extractFileName(part);
+                    psize=part.getSize()+"";
                     System.out.println("[FileName] Read "+fileNameTmp);
                     fileName = fileNameTmp;
                     serv_type=ServiceType.FILETRANSFER;
@@ -210,7 +212,7 @@ public class Upload extends HttpServlet {
         return ftime;
 
     }
-    private Boolean track_write(String a, String b, String action) {
+    private Boolean track_write(String a, String b, String action, String fsize) {
         String ft="";
         String cur_time = Calendar.getInstance().getTime().toString();
         // final ServletContext servletContext = getServletContext();
@@ -225,7 +227,7 @@ public class Upload extends HttpServlet {
                     f.getPath(),
                     action,
                     cur_time,
-                    (fatr!=null)?(fatr.size()+""):("*no size avaliable"),
+                    fsize,
                     b
                     );
             }
