@@ -41,10 +41,10 @@
             const name_only = tmp.split("/").slice(-1);
             var hlink = "<a href=\"https://pdm.pw/fileserv"+tmp+"\" class=\"ui-state-default ui-corner-all\" title=\"download\" download><span class=\"ui-icon ui-icon-circle-arrow-s\"></span> </a>";
             var file_table="<tr>"
-                +"<th>"+name_only+"</th>"
-                +"<th>"+a["fsizes"][tmp]+"</th>"
-                +"<th>"+a["ftimes"][tmp]+"</th>"
-                +"<th>"+hlink+"</th>"+
+                +"<td>"+name_only+"</td>"
+                +"<td>"+a["fsizes"][tmp]+"</td>"
+                +"<td>"+a["ftimes"][tmp]+"</td>"
+                +"<td>"+hlink+"</td>"+
                 +"</tr>";
             $("#filelist").append(file_table);
         }
@@ -59,7 +59,7 @@
     File Server
     </h2>
     <center>
-        <table border=1>
+        <table border=1 class="darkTable">
             <thead>
                 <tr><th>File</th><th>Size</th><th>Upload Time</th><th>Download</th></tr>
             </thead>
