@@ -8,7 +8,7 @@
     <script src="./jquery-ui-1.13.0/jquery-ui.min.js"></script>
     <link rel='stylesheet' href="./jquery-ui-1.13.0/jquery-ui.min.css" type="text/css" >
     <style>
-        table.darkTable {
+table.darkTable {
   font-family: "Courier New", Courier, monospace;
   border: 0px solid #36393E;
   background-color: #36393E;
@@ -35,15 +35,27 @@ table.darkTable thead {
 table.darkTable thead th {
   font-size: 15px;
   font-weight: bold;
-  color: #71BE74;
-  text-align: center;
+  color: #3ABE3F;
+  text-align: left;
   border-left: 0px solid #4A4A4A;
 }
 table.darkTable thead th:first-child {
   border-left: none;
 }
 
-
+table.darkTable tfoot td {
+  font-size: 12px;
+}
+table.darkTable tfoot .links {
+  text-align: right;
+}
+table.darkTable tfoot .links a{
+  display: inline-block;
+  background: #FFFFFF;
+  color: #4A4A4A;
+  padding: 2px 8px;
+  border-radius: 5px;
+}
     </style>
     <script>
     $( document ).ready(function() {
@@ -97,7 +109,7 @@ table.darkTable thead th:first-child {
     File Server
     </h2>
     <center>
-        <table border=1 class="darkTable">
+        <table class="darkTable">
             <thead>
                 <tr><th>File</th><th>Size</th><th>Upload Time</th><th>Download</th></tr>
             </thead>
