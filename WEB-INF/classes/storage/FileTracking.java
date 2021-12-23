@@ -14,11 +14,16 @@ public class FileTracking {
     public Boolean login (String url, String user, String a){
         if (con!=null)
             logout();
-        con = DriverManager.getConnection(
-                    url, 
-                    user, 
-                    a
-                );
+        try {
+            con = DriverManager.getConnection(
+                        url, 
+                        user, 
+                        a
+                    );
+        }
+        catch (Exception e) {
+            System.out.println("[file tracker storage] log in failure");
+        }
     }
 
     private Boolean exc_emplace_5 (String query, String a1,String a2,String a3,String a4,String a5){

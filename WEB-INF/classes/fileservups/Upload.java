@@ -213,7 +213,7 @@ public class Upload extends HttpServlet {
     private Boolean track_write(String a, String b) {
         BasicFileAttributes fatr ;
         String ft="";
-        String cur_time = new Date().getTime().toString();
+        String cur_time = Calendar.getInstance().getTime().toString();
         final ServletContext servletContext = getServletContext();
         File f = new File(servletContext.getRealPath("."+a.replace("\"","")));
         // File b= File(servletContext.getRealPath("."+a.replace("\"","")));
@@ -226,7 +226,7 @@ public class Upload extends HttpServlet {
             f.getPath(),
             action,
             cur_time,
-            fatr.size(),
+            fatr.size()+"",
             b
             );
         return true;
