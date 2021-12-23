@@ -217,34 +217,21 @@ public class Upload extends HttpServlet {
         String cur_time = Calendar.getInstance().getTime().toString();
         // final ServletContext servletContext = getServletContext();
         File f = new File(a);
-        try{
-            BasicFileAttributes fatr = Files.readAttributes(
-                    f.toPath()
-                    , BasicFileAttributes.class);
-            try {
-                ftrack.exc_emplace_5(
-                    "insert into fileservtracks(filename, action, time, size, status) values ( ? , ? , ? , ? , ? );",
-                    f.getPath(),
-                    action,
-                    cur_time,
-                    fsize,
-                    b
-                    );
-            }
-            catch (Exception e){
-                System.out.println("[fileservups] sql failure.");
-                return false;
-            }
+        try {
+            ftrack.exc_emplace_5(
+                "insert into fileservtracks(filename, action, time, size, status) values ( ? , ? , ? , ? , ? );",
+                f.getPath(),
+                action,
+                cur_time,
+                fsize,
+                b
+                );
         }
-        catch (IOException e){
-            e.printStackTrace();
-            System.out.println("[fileservups] reading file atribute failure.");
+        catch (Exception e){
+            System.out.println("[fileservups] sql failure.");
             return false;
         }
-        
-        
         return true;
-
     }
 
     /**
