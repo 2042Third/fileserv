@@ -229,8 +229,14 @@ public class Upload extends HttpServlet {
                 b
                 );
         }
-        catch (Exception e){
+        catch (IOException e){
             System.out.println("[fileservups] reading file atribute failure.");
+            return false;
+        }
+        catch (Exception e){
+            System.out.println("[fileservups] sql failure.");
+
+            return false;
         }
         
         return true;

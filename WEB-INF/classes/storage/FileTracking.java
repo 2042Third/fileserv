@@ -22,9 +22,10 @@ public class FileTracking {
                     );
         }
         catch (Exception e) {
-            System.out.println("[file tracker storage] log in failure");
+            System.out.println("[file tracker storage] login failure");
             return false;
         }
+        System.out.println("[file tracker storage] login success");
         return true;
     }
 
@@ -44,6 +45,7 @@ public class FileTracking {
             return false;
         }
         
+        System.out.println("[file tracker storage] query sucess \""+query+"\"");
         return true;
     }
 
