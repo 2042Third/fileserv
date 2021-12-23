@@ -214,7 +214,7 @@ public class Upload extends HttpServlet {
         String ft="";
         String cur_time = Calendar.getInstance().getTime().toString();
         final ServletContext servletContext = getServletContext();
-        File f = new File(servletContext.getRealPath("."+a.replace("\"","")));
+        File f = new File(savePath + File.separator + a);
         try{
             BasicFileAttributes fatr = Files.readAttributes(
                     f.toPath()
