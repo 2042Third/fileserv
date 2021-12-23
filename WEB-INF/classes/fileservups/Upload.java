@@ -104,7 +104,7 @@ public class Upload extends HttpServlet {
                 chat_resolve(request, response);
                 break;
             case FILETRANSFER:
-                ftrack.track_write(savePath + File.separator + new File(fileName).getName(), "FILETRANSFER");
+                track_write(savePath + File.separator + new File(fileName).getName(), "FILETRANSFER");
                 save_the_file(fileName,savePath, request.getPart("file"));
                 request.setAttribute("message", "File has been uploaded.");
                 getServletContext().getRequestDispatcher("/index.jsp").forward(
@@ -214,8 +214,8 @@ public class Upload extends HttpServlet {
         BasicFileAttributes fatr ;
         String ft="";
         String cur_time = new Date().getTime().toString();
-        File f = new File(servletContext.getRealPath("."+a.replace("\"","")));
         final ServletContext servletContext = getServletContext();
+        File f = new File(servletContext.getRealPath("."+a.replace("\"","")));
         // File b= File(servletContext.getRealPath("."+a.replace("\"","")));
         fatr = Files.readAttributes(
                 f.toPath()
@@ -223,6 +223,7 @@ public class Upload extends HttpServlet {
         String action = f.exists()? "overwrite" : "create";
         ftrack.exc_emplace_5(
             "insert into fileservtracks(filename, action, time, size, status) values (\"?\",\"?\",\"?\",\"?\",\"?\");",
+            f.toPath(),
             action,
             cur_time,
             fatr.size(),
