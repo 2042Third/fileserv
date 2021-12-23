@@ -104,8 +104,8 @@ public class Upload extends HttpServlet {
                 chat_resolve(request, response);
                 break;
             case FILETRANSFER:
-                track_write("."+savePath + File.separator + new File(fileName).getName(), "FILETRANSFER");
-                save_the_file(fileName,savePath, request.getPart("file"));
+                String tstr =save_the_file(fileName,savePath, request.getPart("file"));
+                track_write("."+savePath + File.separator + new File(fileName).getName(), "FILETRANSFER", tstr);
                 request.setAttribute("message", "File has been uploaded.");
                 getServletContext().getRequestDispatcher("/index.jsp").forward(
                         request, response);
@@ -210,7 +210,7 @@ public class Upload extends HttpServlet {
         return ftime;
 
     }
-    private Boolean track_write(String a, String b) {
+    private Boolean track_write(String a, String b, String action) {
         String ft="";
         String cur_time = Calendar.getInstance().getTime().toString();
         // final ServletContext servletContext = getServletContext();
@@ -219,7 +219,6 @@ public class Upload extends HttpServlet {
             BasicFileAttributes fatr = Files.readAttributes(
                     f.toPath()
                     , BasicFileAttributes.class);
-            String action = f.exists()? "overwrite" : "create";
             try {
                 ftrack.exc_emplace_5(
                     "insert into fileservtracks(filename, action, time, size, status) values ( ? , ? , ? , ? , ? );",
@@ -272,11 +271,18 @@ public class Upload extends HttpServlet {
      *  Writes the file
      * 
      * */
-    private void save_the_file(String fileName,String savePath, Part part )throws IOException{
+    private String save_the_file(String fileName,String savePath, Part part )throws IOException{
         if(fileName!=""){
-            fileName = new File(fileName).getName();
+            File f = new File(fileName);
+            String rt = "";
+            if(f.exists())
+                rt="overwrite";
+            else
+                rt="create";
+            fileName = f.getName();
             part.write(savePath + File.separator + fileName);
         }
+        return "none";
     }
 
     /**
