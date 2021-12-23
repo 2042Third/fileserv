@@ -177,11 +177,11 @@ public class Upload extends HttpServlet {
                 (new File(servletContext.getRealPath("."+b.split("\"")[1]))).toPath()
                 , BasicFileAttributes.class);
 
-            System.out.println("[file listing] getting file time for "+ b+", gotten \""+fatr.lastModifiedTime().toString().split(".")+"\"");
-            for (String c : fatr.lastModifiedTime().toString().split(".")){
+            System.out.println("[file listing] getting file time for "+ b+", gotten \""+fatr.lastModifiedTime().toString().split("\\.")+"\"");
+            for (String c : fatr.lastModifiedTime().toString().split("\\.")){
                 System.out.print(c+",");
             }
-            ft="\""+(fatr.lastModifiedTime().toString()).split(".")[0].replace("T"," ")+"\"";
+            ft="\""+(fatr.lastModifiedTime().toString()).split("\\.")[0].replace("T"," ")+"\"";
             ftime.add(b+":"+ft);
         }
         return ftime;
