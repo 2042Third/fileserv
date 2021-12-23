@@ -7,21 +7,11 @@ compile_dir (){
   for f in ${_getdir}; do
     rdr="$_cur_dir/$f"
     # echo ${rdr} "is compiled"
-    
+    rm *.class
     if [ -d "${rdr}" ]; then 
-      # echo "dir: ${rdr}"
-      # echo ${PWD}
+
       compile_dir ${rdr} &
       wait
-    else
-      case ${rdr} in
-        *.java )
-          # echo "    file: ${rdr}"
-          javac -cp /usr/local/tomcat/lib/*:${comp_dir_lib}/lib/*:${comp_dir}/. ${rdr}
-          ;;
-      esac
-      # touch "compiled"
-      # echo ${rdr} "is compiled"
     fi
   done 
 }
