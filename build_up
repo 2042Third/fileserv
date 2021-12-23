@@ -17,7 +17,7 @@ compile_dir (){
       case ${rdr} in
         *.java )
           # echo "    file: ${rdr}"
-          javac -cp /usr/local/tomcat/lib/*:${comp_dir_lib}/lib/*:${comp_dir}/. ${rdr}
+          javac -cp /usr/local/tomcat/lib/*:${comp_dir_lib}/lib/*:${comp_dir}/.:. ${rdr}
           ;;
       esac
       # touch "compiled"
