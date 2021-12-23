@@ -23,7 +23,9 @@ public class FileTracking {
         }
         catch (Exception e) {
             System.out.println("[file tracker storage] log in failure");
+            return false;
         }
+        return true;
     }
 
     public Boolean exc_emplace_5 (String query, String a1,String a2,String a3,String a4,String a5){
