@@ -1,7 +1,8 @@
 package fileservups;
 import fileservups.*;
 import javaserver.chat.*;
-import javax.xml.bind.JAXBException;
+
+import jakarta.xml.bind.JAXBException;
 import java.io.File;
 import java.util.*;
 import java.io.IOException;
@@ -9,17 +10,17 @@ import java.io.UnsupportedEncodingException;
 import java.net.URLDecoder;
 import java.io.InputStream;
 import java.io.BufferedReader;
-import javax.servlet.ServletException;
-import javax.servlet.ServletContext;
-import javax.servlet.RequestDispatcher;
-import javax.servlet.annotation.MultipartConfig;
-import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import javax.servlet.ServletOutputStream;
+import jakarta.servlet.ServletException;
+import jakarta.servlet.ServletContext;
+import jakarta.servlet.RequestDispatcher;
+import jakarta.servlet.annotation.MultipartConfig;
+import jakarta.servlet.annotation.WebServlet;
+import jakarta.servlet.http.HttpServlet;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.ServletOutputStream;
 import java.io.InputStreamReader;
-import javax.servlet.http.Part;
+import jakarta.servlet.http.Part;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.attribute.BasicFileAttributes;
@@ -93,6 +94,7 @@ public class Upload extends HttpServlet {
             case CHATREG:
                 System.out.println("[CHATREG] Chat Client IP: "+ request.getRemoteAddr());
                 // Need to log the url/ip, and create socket connection and send to it
+                chat_resolve(request, response);
                 break;
             case FILETRANSFER:
                 save_the_file(fileName,savePath, request.getPart("file"));
@@ -135,6 +137,15 @@ public class Upload extends HttpServlet {
         }
         return a;
     }
+
+    /**
+     * Handles chats
+     * */
+    private void chat_resolve (HttpServletRequest request, HttpServletResponse response) {
+        ServletOutputStream responseout = response.getOutputStream();
+        responseout.print("{\"tester1\" , \"this is a msg\"}");
+    }
+
     /**
      * Return all of the headers in thsi part as a string
      * 
