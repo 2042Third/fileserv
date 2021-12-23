@@ -231,7 +231,7 @@ public class Upload extends HttpServlet {
             f.getPath(),
             action,
             cur_time,
-            (fatr!=null)fatr.size()+"":"*no time avaliable",
+            (fatr!=null)?(fatr.size()+""):("*no time avaliable"),
             b
             );
         return true;
