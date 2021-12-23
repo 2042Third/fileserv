@@ -142,8 +142,13 @@ public class Upload extends HttpServlet {
      * Handles chats
      * */
     private void chat_resolve (HttpServletRequest request, HttpServletResponse response) {
-        ServletOutputStream responseout = response.getOutputStream();
-        responseout.print("{\"tester1\" , \"this is a msg\"}");
+        try{
+            ServletOutputStream responseout = response.getOutputStream();
+            responseout.print("{\"tester1\" , \"this is a msg\"}");
+        }
+        catch(Exception e){
+            System.out.println("chat_resolve failure.");
+        }
     }
 
     /**
