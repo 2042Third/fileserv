@@ -85,40 +85,7 @@ nav a {
 nav a:last-of-type {
 	float: right;
 }
-table.darkTable {
-  font-family: "Courier New", Courier, monospace;
-  border: 2px solid #000000;
-  background-color: #4A4A4A;
-  width: 700px;
-  text-align: center;
-  border-collapse: collapse;
-}
-table.darkTable td, table.darkTable th {
-  border: 1px solid #4A4A4A;
-  padding: 9px 5px;
-}
-table.darkTable tbody td {
-  font-size: 15px;
-  font-weight: bold;
-  color: #E6E6E6;
-}
-table.darkTable tr:nth-child(even) {
-  background: #888888;
-}
-table.darkTable thead {
-  background: #012711;
-  border-bottom: 1px solid #000000;
-}
-table.darkTable thead th {
-  font-size: 16px;
-  font-weight: bold;
-  color: #E6E6E6;
-  text-align: center;
-  border-left: 0px solid #4A4A4A;
-}
-table.darkTable thead th:first-child {
-  border-left: none;
-}
+
 .menu {
 	width: 60vw;
 	list-style-type: none;
