@@ -58,6 +58,12 @@ table.darkTable tfoot .links a{
 }
     </style>
     <script>
+    function bytesToSize(bytes) {
+       var sizes = ['Bytes', 'KB', 'MB', 'GB', 'TB'];
+       if (bytes == 0) return '0 Byte';
+       var i = parseInt(Math.floor(Math.log(bytes) / Math.log(1024)));
+       return Math.round(bytes / Math.pow(1024, i), 2) + ' ' + sizes[i];
+    }
     $( document ).ready(function() {
             var data = new FormData();
             data.append('listings','files list');
@@ -92,7 +98,7 @@ table.darkTable tfoot .links a{
             var hlink = "<a href=\"https://pdm.pw/fileserv"+tmp+"\" class=\"ui-state-default ui-corner-all\" title=\"download\" download><span class=\"ui-icon ui-icon-circle-arrow-s\"></span> </a>";
             var file_table="<tr>"
                 +"<td>"+name_only+"</td>"
-                +"<td>"+a["fsizes"][tmp]+"</td>"
+                +"<td>"+bytesToSize(a["fsizes"][tmp])+"</td>"
                 +"<td>"+a["ftimes"][tmp]+"</td>"
                 +"<td>"+hlink+"</td>"+
                 +"</tr>";
