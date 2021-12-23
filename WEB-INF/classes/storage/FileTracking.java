@@ -12,6 +12,12 @@ public class FileTracking {
     private Connection con;
     
     public Boolean login (String url, String user, String a){
+        try{
+            Class.forName("org.mariadb.jdbc.Driver");
+        }
+        catch (Exception e){
+            System.out.println("mariadb driver not found.");
+        }
         if (con!=null)
             logout();
         try {
