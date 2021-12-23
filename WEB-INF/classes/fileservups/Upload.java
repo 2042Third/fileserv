@@ -223,7 +223,7 @@ public class Upload extends HttpServlet {
         String action = f.exists()? "overwrite" : "create";
         ftrack.exc_emplace_5(
             "insert into fileservtracks(filename, action, time, size, status) values (\"?\",\"?\",\"?\",\"?\",\"?\");",
-            f.toPath(),
+            f.getPath(),
             action,
             cur_time,
             fatr.size(),

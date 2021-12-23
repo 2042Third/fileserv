@@ -33,7 +33,7 @@ public class FileTracking {
         }
         catch (Exception e) {
             e.printStackTrace();
-            System.out.println("[file tracker storage] query failure \""+a+"\"");
+            System.out.println("[file tracker storage] query failure \""+query+"\"");
             return false;
         }
         
