@@ -52,6 +52,7 @@ public class Upload extends HttpServlet {
             HttpServletResponse response) throws ServletException, IOException{
 
 
+        System.out.println("[INCOMING FILE] \n");
 
         ServiceType serv_type = ServiceType.NON;
         String appPath = request.getServletContext().getRealPath("");
