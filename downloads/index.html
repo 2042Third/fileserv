@@ -6,56 +6,55 @@
     <title>Unencrypted File Upload</title>
     <script src="./js/jquery-3.6.0.min.js"></script>
     <script src="./jquery-ui-1.13.0/jquery-ui.min.js"></script>
-    <link rel="stylesheet" href="./jquery-ui-1.13.0/jquery-ui.css">
     <style>
         table.darkTable {
-          font-family: "Courier New", Courier, monospace;
-          border: 2px solid #000000;
-          background-color: #4A4A4A;
-          width: 700px;
-          text-align: center;
-          border-collapse: collapse;
-        }
-        table.darkTable td, table.darkTable th {
-          border: 1px solid #4A4A4A;
-          padding: 9px 5px;
-        }
-        table.darkTable tbody td {
-          font-size: 15px;
-          font-weight: bold;
-          color: #E6E6E6;
-        }
-        table.darkTable tr:nth-child(even) {
-          background: #888888;
-        }
-        table.darkTable thead {
-          background: #000000;
-          border-bottom: 1px solid #000000;
-        }
-        table.darkTable thead th {
-          font-size: 16px;
-          font-weight: bold;
-          color: #E6E6E6;
-          text-align: center;
-          border-left: 0px solid #4A4A4A;
-        }
-        table.darkTable thead th:first-child {
-          border-left: none;
-        }
+  font-family: "Courier New", Courier, monospace;
+  border: 0px solid #36393E;
+  background-color: #36393E;
+  width: 700px;
+  text-align: center;
+  border-collapse: collapse;
+}
+table.darkTable td, table.darkTable th {
+  border: 0px solid #4A4A4A;
+  padding: 9px 5px;
+}
+table.darkTable tbody td {
+  font-size: 15px;
+  font-weight: bold;
+  color: #E6E6E6;
+}
+table.darkTable tr:nth-child(even) {
+  background: #888888;
+}
+table.darkTable thead {
+  background: #17181A;
+  border-bottom: 1px solid #000000;
+}
+table.darkTable thead th {
+  font-size: 16px;
+  font-weight: bold;
+  color: #E6E6E6;
+  text-align: center;
+  border-left: 0px solid #4A4A4A;
+}
+table.darkTable thead th:first-child {
+  border-left: none;
+}
 
-        table.darkTable tfoot td {
-          font-size: 12px;
-        }
-        table.darkTable tfoot .links {
-          text-align: right;
-        }
-        table.darkTable tfoot .links a{
-          display: inline-block;
-          background: #FFFFFF;
-          color: #4A4A4A;
-          padding: 2px 8px;
-          border-radius: 5px;
-        }
+table.darkTable tfoot td {
+  font-size: 12px;
+}
+table.darkTable tfoot .links {
+  text-align: right;
+}
+table.darkTable tfoot .links a{
+  display: inline-block;
+  background: #FFFFFF;
+  color: #4A4A4A;
+  padding: 2px 8px;
+  border-radius: 5px;
+}
     </style>
     <script>
     $( document ).ready(function() {
