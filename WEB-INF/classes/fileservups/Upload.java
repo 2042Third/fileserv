@@ -219,29 +219,27 @@ public class Upload extends HttpServlet {
             BasicFileAttributes fatr = Files.readAttributes(
                     f.toPath()
                     , BasicFileAttributes.class);
-            
+            String action = f.exists()? "overwrite" : "create";
+            try {
+                ftrack.exc_emplace_5(
+                    "insert into fileservtracks(filename, action, time, size, status) values ( ? , ? , ? , ? , ? );",
+                    f.getPath(),
+                    action,
+                    cur_time,
+                    (fatr!=null)?(fatr.size()+""):("*no size avaliable"),
+                    b
+                    );
+            }
+            catch (Exception e){
+                System.out.println("[fileservups] sql failure.");
+                return false;
+            }
         }
         catch (IOException e){
             System.out.println("[fileservups] reading file atribute failure.");
             // return false;
         }
-        String action = f.exists()? "overwrite" : "create";
-        try {
-            ftrack.exc_emplace_5(
-                "insert into fileservtracks(filename, action, time, size, status) values ( ? , ? , ? , ? , ? );",
-                f.getPath(),
-                action,
-                cur_time,
-                (fatr!=null)?(fatr.size()+""):("*no size avaliable"),
-                b
-                );
-
-        }
-        catch (Exception e){
-            System.out.println("[fileservups] sql failure.");
-
-            return false;
-        }
+        
         
         return true;
 
