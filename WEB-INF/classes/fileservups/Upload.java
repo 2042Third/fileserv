@@ -236,8 +236,9 @@ public class Upload extends HttpServlet {
             }
         }
         catch (IOException e){
+            e.printStackTrace();
             System.out.println("[fileservups] reading file atribute failure.");
-            // return false;
+            return false;
         }
         
         
